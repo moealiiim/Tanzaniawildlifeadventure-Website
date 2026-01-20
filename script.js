@@ -1,0 +1,131 @@
+(() => {
+  let i18n = {};
+
+  async function loadLocales() {
+    try {
+      const response = await fetch('locales.json');
+      i18n = await response.json();
+      console.log('Locales loaded:', Object.keys(i18n));
+    } catch (error) {
+      console.error('Failed to load locales:', error);
+    }
+  }
+
+  function applyLanguage(lang) {
+    const dict = i18n[lang] || i18n.en || {};
+    console.log('Applying language:', lang, 'Keys available:', Object.keys(dict).length);
+
+    // Translate text content
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const text = dict[key];
+      if (typeof text === "string") el.textContent = text;
+    });
+
+    // Translate placeholders
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      const text = dict[key];
+      if (typeof text === "string") el.placeholder = text;
+    });
+
+    // Update the html lang attribute
+    document.documentElement.lang = lang;
+
+    try { localStorage.setItem("twa_lang", lang); } catch {}
+  }
+
+  function init() {
+    const select = document.getElementById("languageSelect");
+    const saved = (() => { try { return localStorage.getItem("twa_lang"); } catch { return null; } })() || "en";
+
+    loadLocales().then(() => {
+      if (select) {
+        select.value = i18n[saved] ? saved : "en";
+        applyLanguage(select.value);
+        select.addEventListener("change", (e) => {
+          console.log('Language changed to:', e.target.value);
+          applyLanguage(e.target.value);
+        });
+      } else {
+        console.warn('Language select not found');
+        applyLanguage(saved);
+      }
+    });
+
+    // Nav toggle for mobile
+    const navToggle = document.querySelector('.navToggle');
+    const nav = document.getElementById('siteNav');
+    if (navToggle && nav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('nav--open');
+        nav.classList.toggle('nav--open');
+        navToggle.setAttribute('aria-expanded', !isOpen);
+      });
+    }
+
+    // Countdown timer
+    initCountdown();
+  }
+
+  function initCountdown() {
+    const countdownEl = document.querySelector('.countdown');
+    if (!countdownEl) return;
+
+    const timeBoxes = countdownEl.querySelectorAll('.timeBox');
+    if (timeBoxes.length < 4) return;
+
+    // Set target to 24 hours from now (or use stored target for consistency)
+    let targetTime;
+    try {
+      const stored = localStorage.getItem('twa_countdown_target');
+      if (stored) {
+        targetTime = parseInt(stored, 10);
+        // If target has passed, reset to 24 hours from now
+        if (targetTime <= Date.now()) {
+          targetTime = Date.now() + 24 * 60 * 60 * 1000;
+          localStorage.setItem('twa_countdown_target', targetTime.toString());
+        }
+      } else {
+        targetTime = Date.now() + 24 * 60 * 60 * 1000;
+        localStorage.setItem('twa_countdown_target', targetTime.toString());
+      }
+    } catch {
+      targetTime = Date.now() + 24 * 60 * 60 * 1000;
+    }
+
+    function updateCountdown() {
+      const now = Date.now();
+      let diff = targetTime - now;
+
+      if (diff <= 0) {
+        // Reset countdown when it reaches zero
+        targetTime = Date.now() + 24 * 60 * 60 * 1000;
+        try { localStorage.setItem('twa_countdown_target', targetTime.toString()); } catch {}
+        diff = targetTime - now;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      // Update the number spans (first span in each timeBox)
+      timeBoxes[0].querySelector('span').textContent = String(days).padStart(2, '0');
+      timeBoxes[1].querySelector('span').textContent = String(hours).padStart(2, '0');
+      timeBoxes[2].querySelector('span').textContent = String(mins).padStart(2, '0');
+      timeBoxes[3].querySelector('span').textContent = String(secs).padStart(2, '0');
+    }
+
+    // Update immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

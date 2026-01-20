@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Tanzania Wildlife Adventures | Safari, Trekking & Zanzibar</title>
+  <meta name="description" content="Tanzania Wildlife Adventures: Safari, trekking, day trips and Zanzibar holidays. Plan your tailor-made trip with a trusted local team in Moshi." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span class="pill">Moshi, Tanzania</span>
+        <a class="topbar__link" href="mailto:sales@tanzaniawildlifeadventures.com">sales@tanzaniawildlifeadventures.com</a>
+      </div>
+      <div class="topbar__right">
+        <a class="topbar__phone" href="tel:+255742068122">Call: +255 742 068 122</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#top" aria-label="Tanzania Wildlife Adventures">
+        <span class="brand__mark" aria-hidden="true">TWA</span>
+        <span class="brand__text">
+          <span class="brand__name">Tanzania Wildlife Adventures</span>
+          <span class="brand__tag">Safari • Trekking • Zanzibar</span>
+        </span>
+      </a>
+
+      <button class="navToggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <span class="navToggle__bar"></span>
+        <span class="navToggle__bar"></span>
+        <span class="navToggle__bar"></span>
+        <span class="srOnly">Open menu</span>
+      </button>
+
+      <nav class="nav" id="siteNav">
+  <a href="#experiences" data-i18n="nav.experiences">Experiences</a>
+  <a href="#destinations" data-i18n="nav.destinations">Top Destinations</a>
+  <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+  <a href="#contact" id="plan-trip" class="btn btn--small btn--primary" data-i18n="nav.plan">Plan Your Trip</a>
+
+  <div class="langSelect">
+    <select id="languageSelect" aria-label="Choose language">
+      <option value="en">English (English)</option>
+      <option value="ja">Japanese (日本語)</option>
+      <option value="zh-TW">Chinese – Traditional (繁體中文)</option>
+      <option value="th">Thai (ไทย)</option>
+    </select>
+  </div>
+</nav>
+
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1 data-i18n="hero.title">Ready to live the dream and experience the magic of adventure?</h1>
+          <p class="lead" data-i18n="hero.subtitle">
+            Tailor-made safaris, mountain trekking, day trips and Zanzibar beach holidays — planned by a trusted local team in Moshi.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#contact" data-i18n="hero.cta1">Plan Your Trip</a>
+            <a class="btn btn--ghost" href="#experiences" data-i18n="hero.cta2">Explore Tours</a>
+          </div>
+
+          <div class="trustRow" aria-label="Trust highlights">
+            <div class="trustItem">
+              <div class="trustItem__title" data-i18n="trust.tripadvisor">TripAdvisor</div>
+              <div class="trustItem__meta" data-i18n="trust.tripadvisor_meta">53 reviews</div>
+            </div>
+            <div class="trustItem">
+              <div class="trustItem__title" data-i18n="trust.local">Local team</div>
+              <div class="trustItem__meta" data-i18n="trust.local_meta">Based in Moshi</div>
+            </div>
+            <div class="trustItem">
+              <div class="trustItem__title" data-i18n="trust.trusted">Trusted</div>
+              <div class="trustItem__meta" data-i18n="trust.trusted_meta">Safe planning & support</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="card card--glass">
+            <div class="card__header">
+              <h2 class="card__title" data-i18n="form.quick_title">Quick Message</h2>
+              <p class="card__subtitle" data-i18n="form.quick_subtitle">Tell us your dates and what you want to experience.</p>
+            </div>
+
+            <!-- Netlify form -->
+            <form class="form" name="quick-message" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="quick-message" />
+              <p class="hidden">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
+
+              <div class="grid2">
+                <label>
+                  <span data-i18n="form.name">Name</span>
+                  <input name="name" autocomplete="name" required />
+                </label>
+
+                <label>
+                  <span data-i18n="form.email">Email</span>
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+              </div>
+
+              <div class="grid2">
+                <label>
+                  <span data-i18n="form.phone">Phone Number</span>
+                  <input name="phone" inputmode="tel" autocomplete="tel" />
+                </label>
+
+                <label>
+                  <span data-i18n="form.arrival">Arrival date</span>
+                  <input type="date" name="arrival_date" />
+                </label>
+              </div>
+
+              <label>
+                <span data-i18n="form.message">Message</span>
+                <textarea name="message" rows="4" required placeholder="Safari? Trekking? Zanzibar? Tell us what you want." data-i18n-placeholder="form.message_placeholder"></textarea>
+              </label>
+
+              <button class="btn btn--primary btn--full" type="submit" data-i18n="form.send">Send</button>
+              <p class="form__fineprint"><span data-i18n="form.call_us">Or call us:</span> <a href="tel:+255742068122">+255 742 068 122</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIXED HERO IMAGE (your photo) -->
+      <div class="hero__bg" aria-hidden="true">
+        <img class="hero__bgImg" src="assets/hero.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- PACKAGES (MAIN CONVERSION SECTION) -->
+<section class="section section--packages" id="packages">
+  <div class="container">
+
+    <!-- Urgency Bar -->
+    <div class="urgencyBar">
+      <div class="urgency__left">
+        <strong data-i18n="packages.urgency">Limited seats.</strong> <span data-i18n="packages.urgency_cta">Get dates & exact price in 24 hours.</span>
+      </div>
+      <div class="urgency__right">
+        <div class="countdown">
+          <div class="timeBox"><span>00</span><small data-i18n="packages.days">Days</small></div>
+          <div class="timeBox"><span>23</span><small data-i18n="packages.hours">Hours</small></div>
+          <div class="timeBox"><span>15</span><small data-i18n="packages.mins">Mins</small></div>
+          <div class="timeBox"><span>59</span><small data-i18n="packages.secs">Secs</small></div>
+        </div>
+        <a class="btn btn--primary btn--small" href="#contact" data-i18n="packages.get_dates">Get Dates & Price</a>
+      </div>
+    </div>
+
+    <!-- Trust Pills -->
+    <div class="trustPills">
+      <span data-i18n="packages.trust1">★★★★★ Trusted by international travelers</span>
+      <span data-i18n="packages.trust2">Local licensed operator</span>
+      <span data-i18n="packages.trust3">Fixed arrival dates</span>
+      <span data-i18n="packages.trust4">Limited seats</span>
+    </div>
+
+    <!-- Title -->
+    <div class="sectionHead sectionHead--center">
+      <h2 data-i18n="packages.title">Choose Your Group Safari Package</h2>
+      <p data-i18n="packages.subtitle">Designed exactly like our official safari packages — clear, structured, and easy to understand.</p>
+    </div>
+
+    <!-- Package Cards -->
+    <div class="packageGrid">
+
+      <!-- Package 1 -->
+      <article class="packageCard packageCard--popular">
+        <div class="badge" data-i18n="package1.badge">Most Popular • 7 Days / 6 Nights</div>
+
+        <h3 data-i18n="package1.title">Group Joining Safari</h3>
+        <p class="packageMeta" data-i18n="package1.meta">Arrival Thursday • Safari starts Friday</p>
+
+        <ul class="itinerary">
+          <li><strong data-i18n="package1.day1">Day 1:</strong> <span data-i18n="package1.day1_desc">Arrival – Springlands Hotel</span></li>
+          <li><strong data-i18n="package1.day2">Day 2:</strong> <span data-i18n="package1.day2_desc">Lake Manyara National Park</span></li>
+          <li><strong data-i18n="package1.day3">Day 3–4:</strong> <span data-i18n="package1.day3_desc">Central Serengeti</span></li>
+          <li><strong data-i18n="package1.day5">Day 5:</strong> <span data-i18n="package1.day5_desc">Ngorongoro Crater Tour</span></li>
+          <li><strong data-i18n="package1.day6">Day 6:</strong> <span data-i18n="package1.day6_desc">Tarangire → Moshi</span></li>
+          <li><strong data-i18n="package1.day7">Day 7:</strong> <span data-i18n="package1.day7_desc">Departure (JRO / Arusha)</span></li>
+        </ul>
+
+        <a class="btn btn--primary btn--full" href="#contact" data-i18n="package1.cta">Check Dates & Pricing</a>
+      </article>
+
+      <!-- Package 2 -->
+      <article class="packageCard">
+        <div class="badge badge--alt" data-i18n="package2.badge">Extended • 11 Days / 10 Nights</div>
+
+        <h3 data-i18n="package2.title">Longer Group Safari + Culture</h3>
+        <p class="packageMeta" data-i18n="package2.meta">Flexible monthly departures</p>
+
+        <ul class="itinerary">
+          <li><strong data-i18n="package2.day1">Days 1–5:</strong> <span data-i18n="package2.day1_desc">Karatu & Cultural Experiences</span></li>
+          <li><strong data-i18n="package2.day2">Days 6–8:</strong> <span data-i18n="package2.day2_desc">Central Serengeti</span></li>
+          <li><strong data-i18n="package2.day3">Day 9:</strong> <span data-i18n="package2.day3_desc">Ngorongoro Crater</span></li>
+          <li><strong data-i18n="package2.day4">Day 10:</strong> <span data-i18n="package2.day4_desc">Lake Manyara / Mto wa Mbu</span></li>
+          <li><strong data-i18n="package2.day5">Day 11:</strong> <span data-i18n="package2.day5_desc">Departure (JRO / Arusha)</span></li>
+        </ul>
+
+        <a class="btn btn--ghost btn--full" href="#contact" data-i18n="package2.cta">Check Dates & Pricing</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Experiences (with images + read more) -->
+    <section class="section" id="experiences">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 data-i18n="exp.title">Signature Experiences</h2>
+          <p data-i18n="exp.subtitle">Animals, mountains, and beaches — choose your style and we tailor the full itinerary.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card card--media">
+            <img class="card__img" src="assets/safari.jpg" alt="Safari wildlife in Tanzania">
+            <div class="card__content">
+              <h3 data-i18n="exp.safari_title">Safari</h3>
+              <p data-i18n="exp.safari_desc">Serengeti, Ngorongoro, Tarangire and more — wildlife, landscapes and unforgettable moments.</p>
+              <details class="more">
+                <summary data-i18n="exp.safari_more">Read more</summary>
+                <p data-i18n="exp.safari_detail">We arrange private or group safaris, park fees, lodges/camps, professional guides and 4x4 vehicles. You can customize days, comfort level and destinations.</p>
+              </details>
+              <a class="link" href="#contact" data-i18n="exp.safari_cta">Request a Safari Plan →</a>
+            </div>
+          </article>
+
+          <article class="card card--media">
+            <img class="card__img" src="assets/trekking.jpg" alt="Mountain trekking on Kilimanjaro">
+            <div class="card__content">
+              <h3 data-i18n="exp.trek_title">Trekking</h3>
+              <p data-i18n="exp.trek_desc">Kilimanjaro routes and scenic hikes — expert guidance, logistics and safety-first planning.</p>
+              <details class="more">
+                <summary data-i18n="exp.trek_more">Read more</summary>
+                <p data-i18n="exp.trek_detail">We help you choose the best route, pacing and acclimatization plan. Includes guides, porters, meals, permits and safety equipment.</p>
+              </details>
+              <a class="link" href="#contact" data-i18n="exp.trek_cta">Plan Your Trek →</a>
+            </div>
+          </article>
+
+          <article class="card card--media">
+            <img class="card__img" src="assets/combo.jpg" alt="Combo safari and beach holiday">
+            <div class="card__content">
+              <h3 data-i18n="exp.combo_title">Combo Safari</h3>
+              <p data-i18n="exp.combo_desc">The best of both worlds: safari + Zanzibar or trekking + safari, perfectly timed.</p>
+              <details class="more">
+                <summary data-i18n="exp.combo_more">Read more</summary>
+                <p data-i18n="exp.combo_detail">Popular combos include Safari + Zanzibar, Kilimanjaro + Safari, or full Northern Circuit + beach relaxation. We handle transfers and timing.</p>
+              </details>
+              <a class="link" href="#contact" data-i18n="exp.combo_cta">Build a Combo Trip →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations (attractions with pictures) -->
+    <section class="section section--soft" id="destinations">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 data-i18n="dest.title">Top Destinations</h2>
+          <p data-i18n="dest.subtitle">Some of the most loved places in Tanzania — we'll help you choose what fits your dream trip.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="tile tile--media">
+            <img class="tile__img" src="assets/tarangire.jpg" alt="Tarangire National Park elephants">
+            <div class="tile__content">
+              <h3 data-i18n="dest.tarangire_title">Tarangire National Park</h3>
+              <p data-i18n="dest.tarangire_desc">Elephants, baobabs, and classic savannah scenery.</p>
+            </div>
+          </article>
+
+          <article class="tile tile--media">
+            <img class="tile__img" src="assets/ngorongoro.jpg" alt="Ngorongoro Crater view">
+            <div class="tile__content">
+              <h3 data-i18n="dest.ngorongoro_title">Ngorongoro Crater</h3>
+              <p data-i18n="dest.ngorongoro_desc">One of Africa's best wildlife viewing spots.</p>
+            </div>
+          </article>
+
+          <article class="tile tile--media">
+            <img class="tile__img" src="assets/chemka.jpg" alt="Chemka Hot Springs">
+            <div class="tile__content">
+              <h3 data-i18n="dest.chemka_title">Chemka Hot Springs</h3>
+              <p data-i18n="dest.chemka_desc">A relaxing day trip with crystal-clear water.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn btn--primary" href="#contact" data-i18n="dest.custom_cta">Ask for a Custom Itinerary</a>
+          <a class="btn btn--ghost" href="#daytrips" data-i18n="dest.more_cta">More Day Trips</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Day Trips -->
+    <section class="section" id="daytrips">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 data-i18n="daytrips.title">Day Trips</h2>
+          <p data-i18n="daytrips.subtitle">Short adventures from Moshi/Arusha — perfect before or after a safari.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="tile">
+            <h3 data-i18n="daytrips.arusha_title">Arusha National Park</h3>
+            <p data-i18n="daytrips.arusha_desc">Great for a quick safari day with stunning views.</p>
+          </div>
+          <div class="tile">
+            <h3 data-i18n="daytrips.serval_title">Serval Wildlife</h3>
+            <p data-i18n="daytrips.serval_desc">A unique wildlife experience to add to your journey.</p>
+          </div>
+          <div class="tile">
+            <h3 data-i18n="daytrips.city_title">City & Culture</h3>
+            <p data-i18n="daytrips.city_desc">Markets, local food, and cultural experiences in town.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zanzibar -->
+    <section class="section" id="zanzibar">
+      <div class="container split">
+        <div class="split__copy">
+          <h2 data-i18n="zanzibar.title">Zanzibar Beach Holiday</h2>
+          <p class="leadSmall" data-i18n="zanzibar.subtitle">
+            End your adventure with white sand beaches, spice tours, culture and ocean views.
+          </p>
+
+          <ul class="checklist">
+            <li data-i18n="zanzibar.check1">Handpicked hotels & resorts</li>
+            <li data-i18n="zanzibar.check2">Spice farm and Stone Town options</li>
+            <li data-i18n="zanzibar.check3">Snorkeling, sandbanks & sunset cruises</li>
+          </ul>
+
+          <a class="btn btn--primary" href="#contact" data-i18n="zanzibar.cta">Plan Zanzibar</a>
+        </div>
+
+        <div class="split__card">
+          <div class="card card--media">
+            <img class="card__img" src="assets/zanzibar.jpg" alt="Zanzibar beach">
+            <div class="card__content">
+              <h3 data-i18n="zanzibar.combo_title">Safari + Zanzibar</h3>
+              <p data-i18n="zanzibar.combo_desc">Perfect mix of wildlife and beach relaxation.</p>
+              <a class="link" href="#contact" data-i18n="zanzibar.combo_cta">Get a quote →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section section--soft" id="reviews">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 data-i18n="reviews.title">Tanzania Wildlife Adventures on TripAdvisor</h2>
+          <p><strong data-i18n="reviews.subtitle">53 reviews</strong> • <span data-i18n="reviews.subtitle_text">Real stories from travelers.</span></p>
+        </div>
+
+        <div class="reviews">
+          <article class="review">
+            <div class="review__top">
+              <div class="avatar" aria-hidden="true">JS</div>
+              <div>
+                <div class="review__name">Janeth S</div>
+                <div class="review__meta" data-i18n="reviews.time1">1 year ago</div>
+              </div>
+            </div>
+            <h3 data-i18n="review1.title">Wonderful Experience</h3>
+            <p data-i18n="review1.text">Amazing trip and amazing guide — thank you to our guide and the whole team. We will be back again for Kilimanjaro climbing.</p>
+          </article>
+
+          <article class="review">
+            <div class="review__top">
+              <div class="avatar" aria-hidden="true">DD</div>
+              <div>
+                <div class="review__name">Daydream</div>
+                <div class="review__meta" data-i18n="reviews.time1">1 year ago</div>
+              </div>
+            </div>
+            <h3 data-i18n="review2.title">A Trip to Recall!</h3>
+            <p data-i18n="review2.text">Our family had an amazing experience. Great guide, unforgettable wildlife, and Zanzibar was breathtaking.</p>
+          </article>
+
+          <article class="review">
+            <div class="review__top">
+              <div class="avatar" aria-hidden="true">JW</div>
+              <div>
+                <div class="review__name">John W</div>
+                <div class="review__meta" data-i18n="reviews.time2">2 years ago</div>
+              </div>
+            </div>
+            <h3 data-i18n="review3.title">BEST EXPERIENCE EVER</h3>
+            <p data-i18n="review3.text">Amazing trip, amazing guide, nice hotel and food as well. Thank you for organizing this unforgettable safari.</p>
+          </article>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn btn--ghost" href="#contact" data-i18n="reviews.more_cta">Read more reviews</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog placeholder -->
+    <section class="section" id="blog">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 data-i18n="blog.title">Blog</h2>
+          <p data-i18n="blog.subtitle">Travel tips, packing lists, best seasons and Tanzania highlights.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="post">
+            <h3 data-i18n="blog.post1_title">Best time to visit Serengeti</h3>
+            <p data-i18n="blog.post1_desc">Season-by-season guide for wildlife viewing and migration.</p>
+            <a class="link" href="#contact" data-i18n="blog.coming_soon">Coming soon →</a>
+          </article>
+          <article class="post">
+            <h3 data-i18n="blog.post2_title">Kilimanjaro preparation checklist</h3>
+            <p data-i18n="blog.post2_desc">Training, gear and altitude tips for a safe trek.</p>
+            <a class="link" href="#contact" data-i18n="blog.coming_soon">Coming soon →</a>
+          </article>
+          <article class="post">
+            <h3 data-i18n="blog.post3_title">Zanzibar: 3 perfect beach days</h3>
+            <p data-i18n="blog.post3_desc">Where to stay, what to do, and how to relax after safari.</p>
+            <a class="link" href="#contact" data-i18n="blog.coming_soon">Coming soon →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--soft" id="contact">
+      <div class="container contact">
+        <div class="contact__left">
+          <h2 data-i18n="contact.title">Contact Us</h2>
+          <p class="leadSmall" data-i18n="contact.subtitle">
+            Plan your trip with us and experience the beauty of Tanzania like no one else.
+            Let us plan your tailor-made trip for you.
+          </p>
+
+          <div class="contactDetails">
+            <div class="detail">
+              <div class="detail__label" data-i18n="contact.office_label">Office Location</div>
+              <div class="detail__value" data-i18n="contact.office_value">Moshi</div>
+            </div>
+            <div class="detail">
+              <div class="detail__label" data-i18n="contact.call_label">Call Us</div>
+              <div class="detail__value"><a href="tel:+255742068122">+255 742 068 122</a></div>
+            </div>
+            <div class="detail">
+              <div class="detail__label" data-i18n="contact.email_label">Email</div>
+              <div class="detail__value"><a href="mailto:sales@tanzaniawildlifeadventures.com">sales@tanzaniawildlifeadventures.com</a></div>
+            </div>
+          </div>
+
+          <div class="payBox">
+            <h3 data-i18n="contact.pay_title">Pay safe with us</h3>
+            <p data-i18n="contact.pay_desc">We can send a secure payment link after confirming your itinerary.</p>
+            <a class="btn btn--ghost" href="#contact" data-i18n="contact.pay_cta">Pay Now</a>
+          </div>
+        </div>
+
+        <div class="contact__right">
+          <div class="card">
+            <h3 data-i18n="form.quick_title">Quick Message</h3>
+            <p class="muted" data-i18n="form.reply_note">We reply as soon as possible.</p>
+
+            <form class="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
+
+              <label>
+                <span data-i18n="form.name">Name</span>
+                <input name="name" autocomplete="name" required />
+              </label>
+
+              <label>
+                <span data-i18n="form.email">Email</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+
+              <label>
+                <span data-i18n="form.phone">Phone Number</span>
+                <input name="phone" inputmode="tel" autocomplete="tel" />
+              </label>
+
+              <label>
+                <span data-i18n="form.arrival">Arrival date</span>
+                <input type="date" name="arrival_date" />
+              </label>
+
+              <label>
+                <span data-i18n="form.message">Message</span>
+                <textarea name="message" rows="5" required></textarea>
+              </label>
+
+              <button class="btn btn--primary btn--full" type="submit" data-i18n="form.send_message">Send Message</button>
+              <p class="form__fineprint" data-i18n="form.agreement">By sending, you agree we may contact you by email/phone.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo" data-i18n="footer.brand">Tanzania Wildlife Adventures</div>
+        <p class="muted" data-i18n="footer.tagline">
+          Plan your trip with us and experience Tanzania like no one else — a trip of a lifetime.
+        </p>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4 data-i18n="footer.useful_links">Useful Links</h4>
+          <a href="#experiences" data-i18n="footer.safari_faqs">Safari FAQs</a>
+          <a href="#blog" data-i18n="footer.blog">Blog</a>
+          <a href="#contact" data-i18n="footer.contact_us">Contact Us</a>
+          <a href="#contact" data-i18n="footer.privacy">Privacy Policy</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 data-i18n="footer.top_destinations">Top Destinations</h4>
+          <a href="#destinations" data-i18n="dest.tarangire_title">Tarangire National Park</a>
+          <a href="#destinations" data-i18n="dest.ngorongoro_title">Ngorongoro Crater</a>
+          <a href="#destinations" data-i18n="dest.chemka_title">Chemka Hot Springs</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 data-i18n="footer.quick_links">Quick Links</h4>
+          <a href="#experiences" data-i18n="footer.safari_exp">Tanzania Safari Experience</a>
+          <a href="#experiences" data-i18n="footer.trekking">Mountain Trekking</a>
+          <a href="#daytrips" data-i18n="footer.daytrip">Tanzania Day Trip</a>
+          <a href="#zanzibar" data-i18n="footer.zanzibar">Zanzibar Beach Holiday</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__bottomLeft">
+        <div class="social">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="X / Twitter">X</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottomRight">
+        <div class="muted">Moshi Town • <a href="tel:+255742068122">+255 742 068 122</a> • <a href="mailto:sales@tanzaniawildlifeadventures.com">sales@tanzaniawildlifeadventures.com</a></div>
+        <div class="muted" data-i18n="footer.copyright">Copyright © 2026 Tanzania Wildlife Adventures</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
