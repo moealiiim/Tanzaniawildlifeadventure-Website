@@ -110,7 +110,7 @@
             </div>
 
             <!-- Netlify form -->
-            <form class="form" name="quick-message" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form class="form" id="quickMessageForm" name="quick-message" method="POST" data-netlify="true" netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="quick-message" />
               <p class="hidden">
                 <label>Don’t fill this out: <input name="bot-field" /></label>
@@ -502,7 +502,7 @@
             <h3 data-i18n="form.quick_title">Quick Message</h3>
             <p class="muted" data-i18n="form.reply_note">We reply as soon as possible.</p>
 
-            <form class="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form class="form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="contact" />
               <p class="hidden">
                 <label>Don’t fill this out: <input name="bot-field" /></label>

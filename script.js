@@ -66,6 +66,40 @@
 
     // Countdown timer
     initCountdown();
+
+    // Contact form WhatsApp submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = contactForm.name.value;
+        const email = contactForm.email.value;
+        const phone = contactForm.phone.value;
+        const arrival_date = contactForm.arrival_date.value;
+        const message = contactForm.message.value;
+        const whatsappMessage = `New Safari Inquiry:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nArrival date: ${arrival_date}\nMessage: ${message}`;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappUrl = `https://wa.me/255742068122?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    }
+
+    // Quick message form WhatsApp submission
+    const quickMessageForm = document.getElementById('quickMessageForm');
+    if (quickMessageForm) {
+      quickMessageForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = quickMessageForm.name.value;
+        const email = quickMessageForm.email.value;
+        const phone = quickMessageForm.phone.value;
+        const arrival_date = quickMessageForm.arrival_date.value;
+        const message = quickMessageForm.message.value;
+        const whatsappMessage = `New Safari Inquiry:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nArrival date: ${arrival_date}\nMessage: ${message}`;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappUrl = `https://wa.me/255742068122?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    }
   }
 
   function initCountdown() {
