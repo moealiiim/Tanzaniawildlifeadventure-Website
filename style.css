@@ -893,3 +893,11 @@ a{ color: inherit; text-decoration:none; }
 #plan-trip {
   color: whitesmoke;
 }
+
+/* Flag language buttons */
+.langFlags { display:flex; gap:8px; align-items:center; }
+.langBtn { background:transparent; border:none; padding:6px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; opacity:.75; transition: transform .18s ease, opacity .12s ease, box-shadow .12s ease; border-radius:999px; }
+.langBtn:hover { opacity:1; transform:translateY(-1px) scale(1.06); box-shadow: 0 6px 18px rgba(11,60,47,.12); }
+.langBtn.active { opacity:1; outline:3px solid rgba(200,155,60,.55); outline-offset:4px; box-shadow: 0 8px 24px rgba(11,60,47,.12); }
+
+.langBtn img.flagImg{ display:block; width:32px; height:20px; object-fit:cover; border-radius:6px; border:1px solid rgba(15,23,42,.06); background:#fff; box-shadow: 0 1px 2px rgba(0,0,0,.06); }

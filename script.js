@@ -36,19 +36,28 @@
   }
 
   function init() {
-    const select = document.getElementById("languageSelect");
     const saved = (() => { try { return localStorage.getItem("twa_lang"); } catch { return null; } })() || "en";
 
     loadLocales().then(() => {
-      if (select) {
-        select.value = i18n[saved] ? saved : "en";
-        applyLanguage(select.value);
-        select.addEventListener("change", (e) => {
-          console.log('Language changed to:', e.target.value);
-          applyLanguage(e.target.value);
+      // Flag button language switcher
+      const buttons = document.querySelectorAll('.langBtn');
+      if (buttons && buttons.length) {
+        const activate = (lang) => buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        const initial = i18n[saved] ? saved : 'en';
+        applyLanguage(initial);
+        activate(initial);
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            console.log('Language changed to:', lang);
+            applyLanguage(lang);
+            try { localStorage.setItem('twa_lang', lang); } catch {}
+            activate(lang);
+          });
         });
       } else {
-        console.warn('Language select not found');
+        // Fallback: if no flag buttons present, apply saved language
         applyLanguage(saved);
       }
     });
