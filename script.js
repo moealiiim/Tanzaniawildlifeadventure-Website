@@ -75,12 +75,12 @@
             if (orig) {
               const clone = orig.cloneNode(true);
               clone.classList.add('langFlags--mobile');
+              // Remove any wiring markers from cloned buttons, then attach handlers
+              clone.querySelectorAll('.langBtn').forEach(cb => { delete cb.dataset.langWired; attachLangHandler(cb); });
               // Insert at start of topbar right (before phone link)
               topbarRight.insertBefore(clone, topbarRight.firstChild);
-              // Wire handlers for cloned buttons
-              clone.querySelectorAll('.langBtn').forEach(attachLangHandler);
               // Sync active state
-              activate((i18n[saved] && i18n[saved][0]) ? saved : initial);
+              activate(initial);
             }
           }
         } else {
