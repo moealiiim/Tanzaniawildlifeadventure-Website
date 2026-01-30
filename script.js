@@ -40,26 +40,61 @@
 
     loadLocales().then(() => {
       // Flag button language switcher
-      const buttons = document.querySelectorAll('.langBtn');
-      if (buttons && buttons.length) {
-        const activate = (lang) => buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        const initial = i18n[saved] ? saved : 'en';
-        applyLanguage(initial);
-        activate(initial);
+      const activate = (lang) => document.querySelectorAll('.langBtn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      const initial = i18n[saved] ? saved : 'en';
 
-        buttons.forEach((btn) => {
-          btn.addEventListener('click', () => {
-            const lang = btn.dataset.lang;
-            console.log('Language changed to:', lang);
-            applyLanguage(lang);
-            try { localStorage.setItem('twa_lang', lang); } catch {}
-            activate(lang);
-          });
+      // Apply saved/initial language and set visual state
+      applyLanguage(initial);
+      activate(initial);
+
+      // Attach click handler once per button (guard with data attribute)
+      function attachLangHandler(btn) {
+        if (btn.dataset.langWired) return;
+        btn.addEventListener('click', () => {
+          const lang = btn.dataset.lang;
+          console.log('Language changed to:', lang);
+          applyLanguage(lang);
+          try { localStorage.setItem('twa_lang', lang); } catch {}
+          activate(lang);
         });
-      } else {
-        // Fallback: if no flag buttons present, apply saved language
-        applyLanguage(saved);
+        btn.dataset.langWired = '1';
       }
+
+      // Wire existing buttons
+      document.querySelectorAll('.langBtn').forEach(attachLangHandler);
+
+      // Ensure flags are visible on mobile in the topbar (clone + wire handlers)
+      function ensureMobileFlags() {
+        const topbarRight = document.querySelector('.topbar__inner .topbar__right');
+        if (!topbarRight) return;
+        const existingMobile = document.querySelector('.langFlags--mobile');
+
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          if (!existingMobile) {
+            const orig = document.querySelector('.langFlags');
+            if (orig) {
+              const clone = orig.cloneNode(true);
+              clone.classList.add('langFlags--mobile');
+              // Insert at start of topbar right (before phone link)
+              topbarRight.insertBefore(clone, topbarRight.firstChild);
+              // Wire handlers for cloned buttons
+              clone.querySelectorAll('.langBtn').forEach(attachLangHandler);
+              // Sync active state
+              activate((i18n[saved] && i18n[saved][0]) ? saved : initial);
+            }
+          }
+        } else {
+          if (existingMobile) existingMobile.remove();
+        }
+      }
+
+      // Initial check and on resize (debounced)
+      ensureMobileFlags();
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(ensureMobileFlags, 150);
+      });
     });
 
     // Nav toggle for mobile
