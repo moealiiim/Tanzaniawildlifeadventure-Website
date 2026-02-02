@@ -123,7 +123,7 @@
         const message = contactForm.message.value;
         const whatsappMessage = `New Safari Inquiry:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nArrival date: ${arrival_date}\nMessage: ${message}`;
         const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappUrl = `https://wa.me/255742068122?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/46760088124?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
       });
     }
@@ -140,7 +140,7 @@
         const message = quickMessageForm.message.value;
         const whatsappMessage = `New Safari Inquiry:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nArrival date: ${arrival_date}\nMessage: ${message}`;
         const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappUrl = `https://wa.me/255742068122?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/46760088124?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
       });
     }
